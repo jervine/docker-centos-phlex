@@ -7,9 +7,11 @@ ENV container docker
 # Install updates
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-RUN yum install -y supervisor
+RUN yum install -y supervisor httpd httpd-tools git gettext openssl logrotate php71 php71-php-xmlrpc php71-php-gd
 RUN yum update -y
 RUN yum clean all
+
+RUN cd /config; git clone https://github.com/d8ahazard/Phlex
 
 ADD supervisord.conf /etc/supervisord.conf
 ADD start.sh /usr/sbin/start.sh
