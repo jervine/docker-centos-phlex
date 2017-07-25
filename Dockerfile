@@ -7,7 +7,8 @@ ENV container docker
 # Install updates
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #RUN yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-#RUN yum install -y supervisor httpd httpd-tools git gettext openssl logrotate php71 php71-php-xmlrpc php71-php-gd
+RUN yum install -y supervisor httpd httpd-tools git gettext openssl logrotate 
+# commented out php71 php71-php-xmlrpc php71-php-gd
 RUN yum update -y
 RUN yum clean all
 
